@@ -2,11 +2,17 @@
 
 ---
 
-## 🛠️ Environment Setup & Installation
+## 🛠️ Environment Initialization & Sanity Check
 
-To eliminate dependency conflicts and ensure smooth reproduction, we recommend managing your runtime framework via Anaconda. Execute the following commands sequentially to initialize the self-contained environment matching our hardware configuration (tested on a single NVIDIA GPU):
+We recommend utilizing Anaconda to build an isolated runtime sub-environment. Run the following command stream to guarantee clean dependency separation:
 
-### 1. Create and activate the isolated conda sub-environment
 ```bash
-conda create -n cdbsnet python=3.9 -y
+# 1. Initialize virtual sub-environment
+conda create -n cdbsnet python=3.10 -y
 conda activate cdbsnet
+
+# 2. Deploy PyTorch ecosystem aligned with CUDA 11.7
+pip install torch==2.5.1+cu117 torchvision==0.20.1+cu117 --extra-index-url [https://download.pytorch.org/whl/cu117](https://download.pytorch.org/whl/cu117)
+
+# 3. Deploy utility dependencies
+pip install opencv-python imageio numpy tabulate
