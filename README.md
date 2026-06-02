@@ -50,3 +50,13 @@ python Train.py
 ```
 
 ### 2. Inference & Saliency Map Generation
+The Test.py execution layer acts as a unified automated loop. It sweeps across all testing sub-directories inside ./dataset/TestDataset/, loads the network weights, and exports binary predictions.
+```bash
+python Test.py
+```
+
+### 3. Quantitative Performance Metrics Benchmarking
+The metric scoring pipeline runs via predict_score.py, evaluating the masks over 256 structural sliding thresholds to produce exact medical evaluation indicators.
+```bash
+python predict_score.py
+```
